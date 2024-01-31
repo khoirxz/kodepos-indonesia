@@ -1,9 +1,11 @@
 # API KODEPOS INDONESIA
 
 example usage
+
 `get http://localhost:5000/?search=jakarta`
 
-return
+return : 
+
 `[
   {
     "province": "DKI Jakarta",
