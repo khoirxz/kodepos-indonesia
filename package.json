@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "api kodepos",
+  "main": "index.js",
+  "author": "khoir",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "dev": "nodemon index.js"
+  }
+}
