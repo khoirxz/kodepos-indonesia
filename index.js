@@ -3,10 +3,27 @@ import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path"; // Import join from path module
 import fs from "fs/promises";
+import { readFile as readFileAsync } from "fs/promises";
+
+import swaggerUI from "swagger-ui-express";
 
 dotenv.config();
 
 const app = express();
+
+app.use(express.json());
+
+app.use(
+  "/api-docs",
+  swaggerUI.serve,
+  swaggerUI.setup(
+    JSON.parse(
+      await readFileAsync(new URL("swagger.json", import.meta.url), {
+        encoding: "utf-8",
+      })
+    )
+  )
+);
 
 app.get("/", async (req, res) => {
   const searchCriteria = req.query.search;

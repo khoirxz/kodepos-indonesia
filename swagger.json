@@ -1,0 +1,62 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Api Kodepos",
+    "description": "Api Kodepos",
+    "contact": {
+      "name": "Rizqi Khoirurrohman",
+      "url": "https://github.com/khoixz",
+      "email": "khoirrurrohman@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/khoixz"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/{query}": {
+      "get": {
+        "tags": ["Kodepos"],
+        "summary": "GET all Kodepos",
+        "description": "Get All Kodepos",
+        "operationId": "GetAllKodepos",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Cari kodepos berdasarkan : kodepost, desa, kecamatan, kabupaten/kota, provinsi",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Kodepos"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Kodepos": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
