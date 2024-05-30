@@ -65,10 +65,12 @@ app.get("/", async (req, res) => {
     res.send(filteredData);
   } catch (err) {
     console.error("Error reading or parsing JSON file:", err);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send({ error: "Internal server error", message: err });
   }
 });
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log(`Server running on http://localhost:${process.env.PORT || 5000}`);
+app.listen(process.env.PORT || 80, () => {
+  const host = req.headers.host;
+  const url = `http${req.secure ? "s" : ""}://${host}`;
+  console.log(`Server running on ${url}`);
 });
