@@ -70,7 +70,5 @@ app.get("/", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  const host = req.headers.host;
-  const url = `http${req.secure ? "s" : ""}://${host}`;
-  console.log(`Server running on ${url}`);
+  console.log(`Server running on http://localhost:${process.env.PORT || 3000}`);
 });
