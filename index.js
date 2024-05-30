@@ -29,7 +29,16 @@ app.get("/", async (req, res) => {
   const searchCriteria = req.query.search;
 
   if (!searchCriteria) {
-    res.status(200).send("API KODEPOS INDONESIA.");
+    res
+      .status(200)
+      .send(
+        `Documentary: ${
+          new URL(
+            req.originalUrl,
+            `http${req.secure ? "s" : ""}://${req.headers.host}`
+          ).origin
+        }/api-docs. Github repo: https://github.com/khoirxz/kodepos-indonesia`
+      );
     return;
   }
 

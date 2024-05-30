@@ -6,21 +6,21 @@
     "description": "Api Kodepos",
     "contact": {
       "name": "Rizqi Khoirurrohman",
-      "url": "https://github.com/khoixz",
+      "url": "https://github.com/khoirxz",
       "email": "khoirrurrohman@gmail.com"
     },
     "license": {
       "name": "MIT",
-      "url": "https://github.com/khoixz"
+      "url": "https://github.com/khoirxz"
     }
   },
-  "host": "localhost:5000",
+
   "basePath": "/",
   "schemes": ["http"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/{query}": {
+    "/": {
       "get": {
         "tags": ["Kodepos"],
         "summary": "GET all Kodepos",
